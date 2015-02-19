@@ -40,7 +40,7 @@ class Email
 		puts("We are proud to anounce #{changed_employee.name} new title #{changed_employee.title}!")
 	end
 end
-rene = Employee.new('Rene', 'Developer', 55000.00)
+rene = Employee.new('Rene', 'Developer', 545430.00)
 rene.add_observer(Payroll.new)
 rene.add_observer(Email.new)
 

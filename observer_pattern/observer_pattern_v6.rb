@@ -17,8 +17,19 @@ class Employee
 		@salary = new_salary
 		if old_salary != new_salary
 			changed
-			notify_observers(self)
 		end
+	end
+
+	def name=(new_name)
+		old_name = @name
+		@name = new_name
+		if old_name != new_name
+			changed
+		end
+	end
+	
+	def changes_complete
+		notify_observers(self) if changed
 	end
 end
 
@@ -35,6 +46,15 @@ class Email
 	end
 end
 
+class SSA
+	def update(changed_employee)
+		puts("#{changed_employee.name} changed his name to #{changed_employee.name}!")
+	end
+end
+
 rene = Employee.new('Rene Escobar', '2927 Hungary Road', 54809)
 rene.add_observer(Payroll.new)
-rene.salary = 54809
+rene.add_observer(SSA.new)
+rene.salary = 32423
+rene.name = 'Bobby Brown'
+rene.changes_complete

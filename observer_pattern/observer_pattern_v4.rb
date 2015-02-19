@@ -50,7 +50,7 @@ class Email
 	end
 end
 
-rene = Employee.new('Rene', 55000.00, '2927 Marlow Rd')
+rene = Employee.new('Rene', 55000.00, '2927 Hungary Rd')
 rene.add_observer(Payroll.new)
 rene.add_observer(Email.new)
 rene.salary = 89043.00
